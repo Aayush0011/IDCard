@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+</head>
+<style>
+    button{
+        background-color: greenyellow;
+        margin-top: 12px;
+        position: relative;;
+
+    }
+    body{
+        background-color: gray;
+    }
+    
+
+</style>
+
+<body>
+    <button onclick="startclock()">Start </button> <br><br>
+    
+    <button onclick="clearInterval(clock)">Stop </button> <br><br>
+   
+    
+    <p id = "showTime"></p>
+    <script type="text/javascript">
+        var clock = setInterval(clocktime, 1000)
+        function startclock(){
+            var refresh=1000;
+            clock=setInterval('clocktime()',refresh)
+        }
+        function clocktime(){
+
+        var d = new Date();
+        var t = d.toLocaleTimeString();
+        document.getElementById('showTime').innerHTML = t;
+        }
+    
+    </script>
+</body>
+</html>
